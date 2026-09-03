@@ -37,78 +37,68 @@
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
-    /* =========================
-       NAVBAR
-    ========================= */
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+    }
 
-    header {
-      height: 64px;
+    /* NAVBAR */
+
+    nav {
       border-bottom: 1px solid var(--border);
-      background: rgba(7, 9, 8, 0.96);
-      display: flex;
-      align-items: center;
+      background: rgba(7, 9, 8, 0.95);
       position: sticky;
       top: 0;
       z-index: 1000;
+      backdrop-filter: blur(12px);
     }
 
-    .nav {
-      width: min(1200px, 94%);
-      margin: auto;
+    .nav-inner {
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 25px;
     }
 
     .logo {
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: -0.3px;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 28px;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 26px;
+      margin-left: auto;
     }
 
     .nav-links a {
       color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 14px;
       transition: 0.2s ease;
     }
 
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
+    .nav-links a:hover,
     .nav-links a.active {
       color: var(--text);
     }
 
     .discord-btn {
       background: var(--accent);
-      color: #061008 !important;
+      color: #071009;
       padding: 10px 16px;
       border-radius: 6px;
-      font-size: 13px;
-      font-weight: 800;
+      font-size: 14px;
+      font-weight: 700;
       transition: 0.2s ease;
+      white-space: nowrap;
     }
 
     .discord-btn:hover {
@@ -118,312 +108,245 @@
 
     .menu-toggle {
       display: none;
-      border: 1px solid var(--border);
-      background: var(--card);
+      background: none;
+      border: none;
       color: var(--text);
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 18px;
+      font-size: 25px;
       cursor: pointer;
     }
 
-    /* =========================
-       MOBILE MENU
-    ========================= */
-
     .mobile-menu {
       display: none;
+      border-top: 1px solid var(--border);
+      padding: 15px 0 20px;
     }
 
-    /* =========================
-       MAIN
-    ========================= */
-
-    main {
-      width: min(1200px, 94%);
-      margin: auto;
+    .mobile-menu.open {
+      display: block;
     }
 
-    /* =========================
-       PAGE HEADER
-    ========================= */
+    .mobile-menu a {
+      display: block;
+      padding: 11px 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
 
-    .page-header {
-      padding: 75px 0 55px;
+    .mobile-menu a:hover {
+      color: var(--text);
+    }
+
+    .mobile-discord {
+      display: block;
+      margin-top: 10px;
+      padding: 12px;
+      background: var(--accent);
+      color: #071009 !important;
+      text-align: center;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 95px 0 80px;
       border-bottom: 1px solid var(--border);
     }
 
     .eyebrow {
       color: var(--accent);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 700;
       text-transform: uppercase;
-      margin-bottom: 14px;
+      letter-spacing: 1.4px;
+      margin-bottom: 16px;
     }
 
-    .page-header h1 {
-      font-size: clamp(38px, 5vw, 58px);
-      line-height: 1.05;
-      letter-spacing: -2px;
-      margin-bottom: 18px;
+    .hero h1 {
+      max-width: 800px;
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1.02;
+      letter-spacing: -3px;
+      margin-bottom: 24px;
     }
 
-    .page-header p {
-      max-width: 650px;
+    .hero p {
+      max-width: 680px;
       color: var(--muted);
-      font-size: 15px;
+      font-size: 17px;
+      line-height: 1.8;
     }
 
-    /* =========================
-       SERVICE SECTION
-    ========================= */
+    /* SECTIONS */
 
-    .service-section {
-      padding: 65px 0;
+    section {
+      padding: 85px 0;
       border-bottom: 1px solid var(--border);
     }
 
-    .section-title {
+    .section-heading {
       display: flex;
       justify-content: space-between;
       align-items: end;
       gap: 30px;
-      margin-bottom: 28px;
+      margin-bottom: 38px;
     }
 
-    .section-title h2 {
-      font-size: 27px;
-      letter-spacing: -0.8px;
+    .section-heading h2 {
+      font-size: 32px;
+      letter-spacing: -1px;
     }
 
-    .section-title p {
+    .section-heading p {
+      max-width: 500px;
       color: var(--muted);
-      font-size: 13px;
-      max-width: 480px;
-      text-align: right;
+      font-size: 15px;
     }
 
-    /* =========================
-       PRICING TABLE
-    ========================= */
+    /* SERVICE LIST */
 
-    .price-table {
+    .service-list {
       border-top: 1px solid var(--border);
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 40px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service-name {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .service-description {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 7px;
+    }
+
+    .price-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .price-row {
-      display: grid;
-      grid-template-columns: 1.2fr 2fr 100px;
-      align-items: center;
-      gap: 25px;
-      min-height: 76px;
-      padding: 15px 20px;
-      border-bottom: 1px solid var(--border);
-      transition: 0.2s ease;
-    }
-
-    .price-row:hover {
-      background: var(--card);
-    }
-
-    .price-row.header {
-      min-height: 48px;
-      background: var(--bg-secondary);
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .package-name {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .package-name span {
-      display: block;
-      color: var(--accent);
-      font-size: 10px;
-      margin-top: 3px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-
-    .description {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .price {
-      color: var(--accent);
-      font-size: 15px;
-      font-weight: 800;
-      text-align: right;
-    }
-
-    /* =========================
-       PING SECTION
-    ========================= */
-
-    .ping-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-top: 1px solid var(--border);
-      border-left: 1px solid var(--border);
-    }
-
-    .ping-item {
-      padding: 25px;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      transition: 0.2s ease;
-    }
-
-    .ping-item:hover {
-      background: var(--card);
-    }
-
-    .ping-item h3 {
-      font-size: 17px;
-      margin-bottom: 5px;
-    }
-
-    .ping-item p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .ping-price {
-      margin-top: 20px;
-      color: var(--accent);
-      font-size: 15px;
-      font-weight: 800;
-    }
-
-    /* =========================
-       BOOSTS
-    ========================= */
-
-    .boost-list {
-      border-top: 1px solid var(--border);
-    }
-
-    .boost-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 17px 20px;
-      border-bottom: 1px solid var(--border);
-      transition: 0.2s ease;
-    }
-
-    .boost-row:hover {
-      background: var(--card);
-    }
-
-    .boost-count {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .boost-price {
-      color: var(--accent);
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    /* =========================
-       BOTTOM CTA
-    ========================= */
-
-    .cta {
-      padding: 75px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 40px;
-    }
-
-    .cta h2 {
-      font-size: 30px;
-      letter-spacing: -1px;
-      margin-bottom: 7px;
-    }
-
-    .cta p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .primary-btn {
-      background: var(--accent);
-      color: #061008;
-      padding: 12px 20px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 800;
-      transition: 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .primary-btn:hover {
-      background: var(--accent-hover);
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 28px 0;
-    }
-
-    .footer-inner {
-      width: min(1200px, 94%);
-      margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 20px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .footer-logo {
+    .price-row:last-child {
+      border-bottom: none;
+    }
+
+    .price-name {
       font-size: 14px;
-      font-weight: 800;
     }
 
-    .footer-logo span {
+    .price {
       color: var(--accent);
+      font-weight: 700;
+      white-space: nowrap;
     }
 
-    footer p {
+    .included {
       color: var(--muted);
-      font-size: 12px;
+      font-size: 13px;
+      margin-top: 5px;
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
+    /* SIMPLE ROWS */
+
+    .simple-list {
+      border-top: 1px solid var(--border);
+    }
+
+    .simple-row {
+      display: grid;
+      grid-template-columns: 260px 1fr auto;
+      gap: 35px;
+      align-items: center;
+      padding: 23px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .simple-row strong {
+      font-size: 15px;
+    }
+
+    .simple-row span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .simple-price {
+      color: var(--accent) !important;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* CTA */
+
+    .cta {
+      padding: 90px 0;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      letter-spacing: -2px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      max-width: 560px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #071009;
+      padding: 13px 21px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* MOBILE */
 
     @media (max-width: 850px) {
-
-      .nav {
-        width: 90%;
-      }
-
-      .nav-right {
-        margin-left: auto;
-      }
-
-      /* IMPORTANT:
-         Hide desktop navigation and desktop Discord button.
-         This prevents the double-button problem.
-      */
-
       .nav-links,
       .discord-btn {
         display: none !important;
@@ -433,124 +356,61 @@
         display: block !important;
       }
 
-      .mobile-menu {
-        display: none;
-        position: absolute;
-        top: 64px;
-        left: 0;
-        width: 100%;
-        background: #090c0a;
-        border-bottom: 1px solid var(--border);
-        padding: 8px 5%;
-        z-index: 999;
+      .hero {
+        padding: 70px 0 60px;
       }
 
-      .mobile-menu.open {
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .section-heading {
         display: block;
       }
 
-      .mobile-menu a {
-        display: block;
-        padding: 14px 4px;
-        border-bottom: 1px solid var(--border);
-        color: var(--muted);
-        font-size: 14px;
-        font-weight: 600;
-      }
-
-      .mobile-menu a:hover {
-        color: var(--text);
-      }
-
-      .mobile-menu .mobile-discord {
+      .section-heading p {
         margin-top: 12px;
-        margin-bottom: 8px;
-        background: var(--accent);
-        color: #061008;
-        text-align: center;
-        border-radius: 6px;
-        border: none;
-        font-weight: 800;
       }
 
-      .page-header {
-        padding: 55px 0 45px;
-      }
-
-      .service-section {
-        padding: 50px 0;
-      }
-
-      .section-title {
-        display: block;
-      }
-
-      .section-title h2 {
-        margin-bottom: 8px;
-      }
-
-      .section-title p {
-        text-align: left;
-      }
-
-      .price-row {
-        grid-template-columns: 1fr auto;
-        gap: 12px;
-        padding: 18px 15px;
-      }
-
-      .price-row.header {
-        display: none;
-      }
-
-      .description {
-        grid-column: 1 / 2;
-      }
-
-      .price {
-        grid-column: 2;
-        grid-row: 1 / 3;
-      }
-
-      .ping-grid {
+      .service-row {
         grid-template-columns: 1fr;
+        gap: 22px;
       }
 
-      .cta {
-        display: block;
-        padding: 60px 0;
+      .simple-row {
+        grid-template-columns: 1fr auto;
+        gap: 10px;
       }
 
-      .cta .primary-btn {
-        display: inline-block;
-        margin-top: 22px;
+      .simple-row span {
+        grid-column: 1 / -1;
+      }
+
+      .simple-price {
+        grid-column: 2;
+        grid-row: 1;
       }
 
       .footer-inner {
-        display: block;
-      }
-
-      footer p {
-        margin-top: 8px;
+        flex-direction: column;
       }
     }
 
     @media (max-width: 500px) {
-
-      .page-header h1 {
-        font-size: 40px;
+      .container {
+        width: min(100% - 28px, 1120px);
       }
 
-      .page-header p {
-        font-size: 14px;
+      .hero h1 {
+        font-size: 42px;
       }
 
-      .price-row {
-        padding: 18px 12px;
-      }
-
-      .ping-item {
-        padding: 20px;
+      .hero p {
+        font-size: 15px;
       }
     }
   </style>
@@ -559,441 +419,337 @@
 <body>
 
   <!-- NAVBAR -->
-  <header>
 
-    <nav class="nav">
+  <nav>
+    <div class="container nav-inner">
 
-      <a href="index.html" class="logo">
-        <span>Staff</span> Finder
-      </a>
+      <a href="index.html" class="logo">Staff Finder</a>
 
-      <div class="nav-right">
-
-        <div class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="staff.html">Staff</a>
-          <a href="services.html" class="active">Services</a>
-          <a href="community.html">Community</a>
-          <a href="roles.html">Roles</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
-
-        <a
-          href="https://discord.gg/EaNBG6fRz"
-          class="discord-btn"
-          target="_blank"
-        >
-          Join Discord
-        </a>
-
-        <!-- ONLY MOBILE BUTTON -->
-        <button
-          class="menu-toggle"
-          onclick="toggleMenu()"
-          aria-label="Open menu"
-        >
-          ☰
-        </button>
-
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="staff.html">Staff</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="community.html">Community</a>
+        <a href="roles.html">Roles</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
       </div>
-
-    </nav>
-
-    <!-- ONLY MOBILE MENU -->
-    <div class="mobile-menu" id="mobileMenu">
-
-      <a href="index.html">Home</a>
-      <a href="staff.html">Staff</a>
-      <a href="services.html">Services</a>
-      <a href="community.html">Community</a>
-      <a href="roles.html">Roles</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
 
       <a
         href="https://discord.gg/EaNBG6fRz"
-        class="mobile-discord"
         target="_blank"
+        class="discord-btn"
       >
         Join Discord
       </a>
 
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
     </div>
 
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container">
+        <a href="index.html">Home</a>
+        <a href="staff.html">Staff</a>
+        <a href="services.html">Services</a>
+        <a href="community.html">Community</a>
+        <a href="roles.html">Roles</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+
+        <a
+          href="https://discord.gg/EaNBG6fRz"
+          target="_blank"
+          class="mobile-discord"
+        >
+          Join Discord
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+    <div class="container">
+
+      <div class="eyebrow">Staff Finder Services</div>
+
+      <h1>Services for Minecraft communities.</h1>
+
+      <p>
+        Promote your Minecraft server, reach new players, and grow your
+        community through Staff Finder.
+      </p>
+
+    </div>
   </header>
 
 
-  <main>
+  <!-- ADVERTISING -->
 
-    <!-- PAGE HEADER -->
-    <section class="page-header">
+  <section>
+    <div class="container">
 
-      <div class="eyebrow">
-        Staff Finder Services
-      </div>
-
-      <h1>
-        Services for<br>
-        Minecraft communities.
-      </h1>
-
-      <p>
-        Promote your server and reach more people through Staff Finder.
-        Browse our advertising and server boosting options below.
-      </p>
-
-    </section>
-
-
-    <!-- ONE WEEK -->
-    <section class="service-section">
-
-      <div class="section-title">
-
+      <div class="section-heading">
         <div>
-          <div class="eyebrow">Advertising</div>
-          <h2>One-Week Advertising</h2>
+          <h2>Advertising</h2>
         </div>
 
         <p>
-          All one-week advertising packages include a
-          3-day Nitro giveaway.
+          Get your server in front of members of the Staff Finder community.
         </p>
-
       </div>
 
 
-      <div class="price-table">
+      <div class="service-list">
 
-        <div class="price-row header">
-          <div>Package</div>
-          <div>Description</div>
-          <div>Price</div>
+        <!-- ONE WEEK -->
+
+        <div class="service-row">
+
+          <div>
+            <div class="service-name">One-Week Advertising</div>
+            <div class="service-description">
+              Promote your server for one week.
+            </div>
+          </div>
+
+          <div class="price-list">
+
+            <div class="price-row">
+              <div>
+                <div class="price-name">Support</div>
+                <div class="included">Includes a 3-day Nitro giveaway</div>
+              </div>
+              <div class="price">$5</div>
+            </div>
+
+            <div class="price-row">
+              <div>
+                <div class="price-name">Important</div>
+                <div class="included">Includes a 3-day Nitro giveaway</div>
+              </div>
+              <div class="price">$6</div>
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="price-row">
-          <div class="package-name">
-            Support
-            <span>1 Week</span>
+
+        <!-- ONE MONTH -->
+
+        <div class="service-row">
+
+          <div>
+            <div class="service-name">One-Month Advertising</div>
+            <div class="service-description">
+              Keep your server promoted for an entire month.
+            </div>
           </div>
 
-          <div class="description">
-            One-week paid advertising package.
+          <div class="price-list">
+
+            <div class="price-row">
+              <div>
+                <div class="price-name">Support</div>
+                <div class="included">Includes a 7-day Nitro giveaway</div>
+              </div>
+              <div class="price">$10</div>
+            </div>
+
+            <div class="price-row">
+              <div>
+                <div class="price-name">Important</div>
+                <div class="included">Includes a 7-day Nitro giveaway</div>
+              </div>
+              <div class="price">$12</div>
+            </div>
+
           </div>
 
-          <div class="price">
-            $5
-          </div>
         </div>
 
-        <div class="price-row">
-          <div class="package-name">
-            Important
-            <span>1 Week</span>
+
+        <!-- PERMANENT -->
+
+        <div class="service-row">
+
+          <div>
+            <div class="service-name">Permanent Advertising</div>
+            <div class="service-description">
+              Keep your advertisement permanently available.
+            </div>
           </div>
 
-          <div class="description">
-            One-week paid advertising package.
+          <div class="price-list">
+
+            <div class="price-row">
+              <div>
+                <div class="price-name">Support</div>
+                <div class="included">Includes a 14-day Nitro giveaway</div>
+              </div>
+              <div class="price">$18</div>
+            </div>
+
+            <div class="price-row">
+              <div>
+                <div class="price-name">Announcements</div>
+                <div class="included">Includes a 14-day Nitro giveaway</div>
+              </div>
+              <div class="price">$20</div>
+            </div>
+
           </div>
 
-          <div class="price">
-            $6
-          </div>
         </div>
 
       </div>
 
-    </section>
+    </div>
+  </section>
 
 
-    <!-- ONE MONTH -->
-    <section class="service-section">
+  <!-- PING OPTIONS -->
 
-      <div class="section-title">
+  <section>
+    <div class="container">
 
+      <div class="section-heading">
         <div>
-          <div class="eyebrow">Advertising</div>
-          <h2>One-Month Advertising</h2>
-        </div>
-
-        <p>
-          All one-month advertising packages include a
-          7-day Nitro giveaway.
-        </p>
-
-      </div>
-
-
-      <div class="price-table">
-
-        <div class="price-row header">
-          <div>Package</div>
-          <div>Description</div>
-          <div>Price</div>
-        </div>
-
-        <div class="price-row">
-          <div class="package-name">
-            Support
-            <span>1 Month</span>
-          </div>
-
-          <div class="description">
-            One-month paid advertising package.
-          </div>
-
-          <div class="price">
-            $10
-          </div>
-        </div>
-
-        <div class="price-row">
-          <div class="package-name">
-            Important
-            <span>1 Month</span>
-          </div>
-
-          <div class="description">
-            One-month paid advertising package.
-          </div>
-
-          <div class="price">
-            $12
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- PERMANENT -->
-    <section class="service-section">
-
-      <div class="section-title">
-
-        <div>
-          <div class="eyebrow">Advertising</div>
-          <h2>Permanent Advertising</h2>
-        </div>
-
-        <p>
-          Permanent advertising packages include a
-          14-day Nitro giveaway.
-        </p>
-
-      </div>
-
-
-      <div class="price-table">
-
-        <div class="price-row header">
-          <div>Package</div>
-          <div>Description</div>
-          <div>Price</div>
-        </div>
-
-        <div class="price-row">
-          <div class="package-name">
-            Support
-            <span>Permanent</span>
-          </div>
-
-          <div class="description">
-            Permanent paid advertising package.
-          </div>
-
-          <div class="price">
-            $18
-          </div>
-        </div>
-
-        <div class="price-row">
-          <div class="package-name">
-            Announcements
-            <span>Permanent</span>
-          </div>
-
-          <div class="description">
-            Permanent paid advertising package.
-          </div>
-
-          <div class="price">
-            $20
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- PINGS -->
-    <section class="service-section">
-
-      <div class="section-title">
-
-        <div>
-          <div class="eyebrow">Server Promotion</div>
           <h2>Ping Options</h2>
         </div>
 
         <p>
-          Choose how you want your server announcement
-          to reach the community.
+          Choose how your advertisement reaches the community.
         </p>
-
       </div>
 
 
-      <div class="ping-grid">
+      <div class="simple-list">
 
-        <div class="ping-item">
-
-          <h3>@here</h3>
-
-          <p>
-            Community-wide notification using the
-            @here mention.
-          </p>
-
-          <div class="ping-price">
-            FREE
-          </div>
-
+        <div class="simple-row">
+          <strong>@here</strong>
+          <span>Ping online members when your advertisement is posted.</span>
+          <span class="simple-price">FREE</span>
         </div>
 
-        <div class="ping-item">
-
-          <h3>@everyone</h3>
-
-          <p>
-            Community-wide notification using the
-            @everyone mention.
-          </p>
-
-          <div class="ping-price">
-            $1
-          </div>
-
+        <div class="simple-row">
+          <strong>@everyone</strong>
+          <span>Reach the entire server with an @everyone ping.</span>
+          <span class="simple-price">$1</span>
         </div>
 
       </div>
 
-    </section>
+    </div>
+  </section>
 
 
-    <!-- BOOSTS -->
-    <section class="service-section">
+  <!-- SERVER BOOSTS -->
 
-      <div class="section-title">
+  <section>
+    <div class="container">
 
+      <div class="section-heading">
         <div>
-          <div class="eyebrow">Server Boosts</div>
-          <h2>Boost Packages</h2>
+          <h2>Server Boosts</h2>
         </div>
 
         <p>
-          Choose a boost package that fits your server.
+          Purchase server boosts through Staff Finder.
         </p>
-
       </div>
 
 
-      <div class="boost-list">
+      <div class="simple-list">
 
-        <div class="boost-row">
-          <div class="boost-count">2 Boosts</div>
-          <div class="boost-price">$5</div>
+        <div class="simple-row">
+          <strong>2 Boosts</strong>
+          <span>Discord server boost package.</span>
+          <span class="simple-price">$5</span>
         </div>
 
-        <div class="boost-row">
-          <div class="boost-count">4 Boosts</div>
-          <div class="boost-price">$7</div>
+        <div class="simple-row">
+          <strong>4 Boosts</strong>
+          <span>Discord server boost package.</span>
+          <span class="simple-price">$7</span>
         </div>
 
-        <div class="boost-row">
-          <div class="boost-count">8 Boosts</div>
-          <div class="boost-price">$9</div>
+        <div class="simple-row">
+          <strong>8 Boosts</strong>
+          <span>Discord server boost package.</span>
+          <span class="simple-price">$9</span>
         </div>
 
-        <div class="boost-row">
-          <div class="boost-count">10 Boosts</div>
-          <div class="boost-price">$10</div>
+        <div class="simple-row">
+          <strong>10 Boosts</strong>
+          <span>Discord server boost package.</span>
+          <span class="simple-price">$10</span>
         </div>
 
-        <div class="boost-row">
-          <div class="boost-count">14 Boosts</div>
-          <div class="boost-price">$15</div>
+        <div class="simple-row">
+          <strong>14 Boosts</strong>
+          <span>Discord server boost package.</span>
+          <span class="simple-price">$15</span>
         </div>
 
       </div>
 
-    </section>
+    </div>
+  </section>
 
 
-    <!-- CTA -->
-    <section class="cta">
+  <!-- CTA -->
 
-      <div>
+  <div class="cta">
+    <div class="container">
 
-        <div class="eyebrow">Interested?</div>
+      <h2>Ready to promote?</h2>
 
-        <h2>Want to place an order?</h2>
-
-        <p>
-          Join Staff Finder and contact us to get started.
-        </p>
-
-      </div>
+      <p>
+        Join Staff Finder and contact us to get your server promoted.
+      </p>
 
       <a
         href="https://discord.gg/EaNBG6fRz"
-        class="primary-btn"
         target="_blank"
+        class="cta-btn"
       >
-        Join Discord
+        Join Staff Finder
       </a>
 
-    </section>
-
-  </main>
+    </div>
+  </div>
 
 
   <!-- FOOTER -->
+
   <footer>
+    <div class="container footer-inner">
 
-    <div class="footer-inner">
-
-      <div class="footer-logo">
-        <span>Staff</span> Finder
+      <div>
+        © 2026 Staff Finder
       </div>
 
-      <p>
-        Minecraft community, opportunities, and networking.
-      </p>
+      <div>
+        Minecraft Community
+      </div>
 
     </div>
-
   </footer>
 
 
-  <!-- MOBILE MENU SCRIPT -->
-  <script>
+  <!-- MOBILE MENU -->
 
+  <script>
     function toggleMenu() {
       const menu = document.getElementById("mobileMenu");
       menu.classList.toggle("open");
     }
-
-    document.querySelectorAll(".mobile-menu a").forEach(link => {
-      link.addEventListener("click", () => {
-        document.getElementById("mobileMenu").classList.remove("open");
-      });
-    });
-
   </script>
 
 </body>
-</html> 
+</html>
