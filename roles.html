@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Roles — Staff Finder</title>
+  <title>Roles | Staff Finder</title>
 
   <style>
     :root {
@@ -48,16 +48,21 @@
 
     /* NAVBAR */
 
-    header {
+    nav {
       border-bottom: 1px solid var(--border);
-      background: var(--bg);
+      background: rgba(7, 9, 8, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
     }
 
-    .navbar {
-      height: 76px;
+    .nav-inner {
+      min-height: 72px;
       display: flex;
       align-items: center;
-      gap: 30px;
+      justify-content: space-between;
+      gap: 25px;
     }
 
     .logo {
@@ -65,10 +70,6 @@
       font-weight: 700;
       letter-spacing: -0.4px;
       white-space: nowrap;
-    }
-
-    .logo span {
-      color: var(--accent);
     }
 
     .nav-links {
@@ -97,100 +98,113 @@
       font-size: 14px;
       font-weight: 700;
       transition: 0.2s ease;
+      white-space: nowrap;
     }
 
     .discord-btn:hover {
       background: var(--accent-hover);
+      transform: translateY(-1px);
     }
 
     .menu-toggle {
       display: none;
-      border: 1px solid var(--border);
-      background: var(--card);
+      background: none;
+      border: none;
       color: var(--text);
-      padding: 8px 11px;
-      border-radius: 6px;
-      font-size: 20px;
+      font-size: 25px;
       cursor: pointer;
-      margin-left: auto;
     }
 
     .mobile-menu {
       display: none;
+      border-top: 1px solid var(--border);
+      padding: 15px 0 20px;
     }
 
     .mobile-menu.open {
       display: block;
-      padding: 12px 0 20px;
-      border-top: 1px solid var(--border);
     }
 
     .mobile-menu a {
       display: block;
       padding: 11px 0;
       color: var(--muted);
-      border-bottom: 1px solid var(--border);
-      font-size: 14px;
+      font-size: 15px;
     }
 
     .mobile-menu a:hover {
       color: var(--text);
     }
 
+    .mobile-discord {
+      display: block;
+      margin-top: 10px;
+      padding: 12px;
+      background: var(--accent);
+      color: #071009 !important;
+      text-align: center;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
     /* HERO */
 
     .hero {
-      padding: 75px 0 65px;
+      padding: 95px 0 80px;
       border-bottom: 1px solid var(--border);
     }
 
     .eyebrow {
       color: var(--accent);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 14px;
+      letter-spacing: 1.4px;
+      margin-bottom: 16px;
     }
 
     .hero h1 {
       max-width: 780px;
-      font-size: clamp(40px, 6vw, 62px);
-      line-height: 1.05;
-      letter-spacing: -2px;
-      margin-bottom: 20px;
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1.02;
+      letter-spacing: -3px;
+      margin-bottom: 24px;
     }
 
     .hero p {
-      max-width: 650px;
+      max-width: 680px;
       color: var(--muted);
-      font-size: 16px;
+      font-size: 17px;
+      line-height: 1.8;
     }
 
-    /* SECTION */
+    /* SECTIONS */
 
     section {
-      padding: 65px 0;
+      padding: 85px 0;
       border-bottom: 1px solid var(--border);
     }
 
-    .section-title {
-      margin-bottom: 30px;
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 38px;
     }
 
-    .section-title h2 {
-      font-size: 27px;
-      letter-spacing: -0.7px;
-      margin-bottom: 7px;
+    .section-heading h2 {
+      font-size: 32px;
+      letter-spacing: -1px;
     }
 
-    .section-title p {
+    .section-heading p {
+      max-width: 500px;
       color: var(--muted);
-      max-width: 650px;
-      font-size: 14px;
+      font-size: 15px;
     }
 
-    /* ROLE LIST */
+    /* ROLE ROWS */
 
     .role-list {
       border-top: 1px solid var(--border);
@@ -198,82 +212,87 @@
 
     .role {
       display: grid;
-      grid-template-columns: 280px 1fr auto;
+      grid-template-columns: 220px 1fr auto;
       gap: 35px;
-      align-items: start;
-      padding: 28px 0;
+      padding: 32px 0;
       border-bottom: 1px solid var(--border);
+      align-items: start;
     }
 
-    .role-name h3 {
-      font-size: 20px;
-      margin-bottom: 5px;
+    .role-name {
+      font-size: 21px;
+      font-weight: 700;
     }
 
-    .role-name p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .role-details h4 {
+    .role-tag {
+      display: inline-block;
+      margin-top: 8px;
       color: var(--accent);
-      font-size: 11px;
+      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
-      margin-bottom: 9px;
+      letter-spacing: 1px;
     }
 
-    .role-details ul {
+    .role-content h3 {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .role-content ul {
       list-style: none;
-    }
-
-    .role-details li {
       color: var(--muted);
       font-size: 14px;
-      padding: 4px 0;
     }
 
-    .role-details li::before {
+    .role-content li {
+      margin-bottom: 7px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .role-content li::before {
       content: "—";
-      margin-right: 8px;
-      color: var(--border);
+      position: absolute;
+      left: 0;
+      color: var(--accent);
     }
 
     .apply-btn {
       display: inline-block;
-      background: var(--accent);
-      color: #071009;
-      padding: 10px 15px;
-      border-radius: 6px;
+      border: 1px solid var(--border);
+      padding: 10px 16px;
+      border-radius: 5px;
       font-size: 13px;
       font-weight: 700;
-      white-space: nowrap;
       transition: 0.2s ease;
+      white-space: nowrap;
     }
 
     .apply-btn:hover {
-      background: var(--accent-hover);
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--card);
     }
 
-    /* PAYMENT */
+    /* INFORMATION */
 
-    .payment-list {
+    .info-list {
       border-top: 1px solid var(--border);
     }
 
-    .payment-row {
+    .info-row {
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 220px 1fr;
       gap: 35px;
-      padding: 20px 0;
+      padding: 25px 0;
       border-bottom: 1px solid var(--border);
     }
 
-    .payment-row strong {
-      font-size: 14px;
+    .info-row strong {
+      font-size: 15px;
     }
 
-    .payment-row span {
+    .info-row span {
       color: var(--muted);
       font-size: 14px;
     }
@@ -281,53 +300,51 @@
     /* CTA */
 
     .cta {
-      padding: 75px 0;
+      padding: 90px 0;
       text-align: center;
     }
 
     .cta h2 {
-      font-size: 31px;
-      letter-spacing: -1px;
-      margin-bottom: 10px;
+      font-size: clamp(32px, 5vw, 48px);
+      letter-spacing: -2px;
+      margin-bottom: 15px;
     }
 
     .cta p {
       max-width: 560px;
-      margin: 0 auto 24px;
+      margin: 0 auto 28px;
       color: var(--muted);
-      font-size: 15px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #071009;
+      padding: 13px 21px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
     }
 
     /* FOOTER */
 
     footer {
-      padding: 28px 0;
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
     }
 
     .footer-inner {
       display: flex;
-      align-items: center;
       justify-content: space-between;
       gap: 20px;
-    }
-
-    footer p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-links a {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .footer-links a:hover {
-      color: var(--text);
     }
 
     /* MOBILE */
@@ -343,34 +360,59 @@
       }
 
       .hero {
-        padding: 58px 0 50px;
+        padding: 70px 0 60px;
       }
 
       .hero h1 {
-        font-size: 42px;
+        letter-spacing: -2px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading p {
+        margin-top: 12px;
       }
 
       .role {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 18px;
       }
 
-      .role-details {
-        padding-top: 0;
+      .role-content {
+        order: 2;
       }
 
       .apply-btn {
         width: fit-content;
       }
 
-      .payment-row {
+      .info-row {
         grid-template-columns: 1fr;
-        gap: 5px;
+        gap: 7px;
       }
 
       .footer-inner {
         flex-direction: column;
-        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 15px;
       }
     }
   </style>
@@ -378,40 +420,37 @@
 
 <body>
 
-  <header>
-    <div class="container">
+  <!-- NAVBAR -->
 
-      <nav class="navbar">
+  <nav>
+    <div class="container nav-inner">
 
-        <a href="index.html" class="logo">
-          Staff <span>Finder</span>
-        </a>
+      <a href="index.html" class="logo">Staff Finder</a>
 
-        <div class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="staff.html">Staff</a>
-          <a href="services.html">Services</a>
-          <a href="community.html">Community</a>
-          <a href="roles.html" class="active">Roles</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="staff.html">Staff</a>
+        <a href="services.html">Services</a>
+        <a href="community.html">Community</a>
+        <a href="roles.html" class="active">Roles</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
 
-        <a
-          href="https://discord.gg/EaNBG6fRz"
-          target="_blank"
-          class="discord-btn"
-        >
-          Join Discord
-        </a>
+      <a
+        href="https://discord.gg/EaNBG6fRz"
+        target="_blank"
+        class="discord-btn"
+      >
+        Join Discord
+      </a>
 
-        <button class="menu-toggle" onclick="toggleMenu()">
-          ☰
-        </button>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
-      </nav>
+    </div>
 
-      <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container">
         <a href="index.html">Home</a>
         <a href="staff.html">Staff</a>
         <a href="services.html">Services</a>
@@ -419,211 +458,215 @@
         <a href="roles.html">Roles</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="https://discord.gg/EaNBG6fRz" target="_blank">
+
+        <a
+          href="https://discord.gg/EaNBG6fRz"
+          target="_blank"
+          class="mobile-discord"
+        >
           Join Discord
         </a>
       </div>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+    <div class="container">
+
+      <div class="eyebrow">Staff Finder Roles</div>
+
+      <h1>Find your place in Staff Finder.</h1>
+
+      <p>
+        Looking to become part of the community or help bring new clients
+        to Staff Finder? Explore the roles currently available.
+      </p>
 
     </div>
   </header>
 
 
-  <main>
+  <!-- ROLES -->
 
-    <!-- HERO -->
-
-    <section class="hero">
-      <div class="container">
-
-        <div class="eyebrow">Staff Finder Roles</div>
-
-        <h1>Find your place in Staff Finder.</h1>
-
-        <p>
-          Explore the roles available in our community and find
-          an opportunity to get involved, help others, and grow with Staff Finder.
-        </p>
-
-      </div>
-    </section>
-
-
-    <!-- ROLES -->
-
-    <section>
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Available Roles</h2>
-          <p>
-            Different ways to become part of the Staff Finder team
-            and contribute to the community.
-          </p>
-        </div>
-
-        <div class="role-list">
-
-          <!-- SALES AGENT -->
-
-          <div class="role">
-
-            <div class="role-name">
-              <h3>Sales Agent</h3>
-              <p>
-                Help bring clients to Staff Finder.
-              </p>
-            </div>
-
-            <div class="role-details">
-
-              <h4>Requirements</h4>
-
-              <ul>
-                <li>14+</li>
-                <li>Be able to bring in clients</li>
-                <li>Be able to accept Apple Pay or gift cards</li>
-                <li>Be active in Discord</li>
-              </ul>
-
-            </div>
-
-            <a
-              href="https://discord.gg/EaNBG6fRz"
-              target="_blank"
-              class="apply-btn"
-            >
-              Apply
-            </a>
-
-          </div>
-
-
-          <!-- VERIFIED STAFF -->
-
-          <div class="role">
-
-            <div class="role-name">
-              <h3>Verified Staff</h3>
-              <p>
-                Become a hireable staff.
-              </p>
-            </div>
-
-            <div class="role-details">
-
-              <h4>Requirements</h4>
-
-              <ul>
-                <li>Have proof of past experiences</li>
-                <li>Be responsible and trustworthy</li>
-                <li>Follow Staff Finder rules and expectations</li>
-              </ul>
-
-            </div>
-
-            <a
-              href="https://discord.gg/EaNBG6fRz"
-              target="_blank"
-              class="apply-btn"
-            >
-              Apply
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- SALES INFORMATION -->
-
-    <section>
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Sales Agent Information</h2>
-          <p>
-            Sales Agents earn a percentage from successful orders
-            made by clients they bring in.
-          </p>
-        </div>
-
-        <div class="payment-list">
-
-          <div class="payment-row">
-            <strong>Payment Method</strong>
-            <span>
-              Payments are made through Apple Pay or gift cards.
-            </span>
-          </div>
-
-          <div class="payment-row">
-            <strong>Commission</strong>
-            <span>
-              Earn 15–20% from each person you bring in who places an order.
-            </span>
-          </div>
-
-          <div class="payment-row">
-            <strong>Cash Out</strong>
-            <span>
-              You may cash out once you reach $5 worth of sales.
-            </span>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- CTA -->
-
-    <section class="cta">
-      <div class="container">
-
-        <h2>Ready to join?</h2>
-
-        <p>
-          Join the Staff Finder Discord and start your application.
-        </p>
-
-        <a
-          href="https://discord.gg/EaNBG6fRz"
-          target="_blank"
-          class="apply-btn"
-        >
-          Join Staff Finder
-        </a>
-
-      </div>
-    </section>
-
-  </main>
-
-
-  <footer>
+  <section>
     <div class="container">
 
-      <div class="footer-inner">
+      <div class="section-heading">
+        <div>
+          <h2>Available Roles</h2>
+        </div>
 
         <p>
-          © 2026 Staff Finder. All rights reserved.
+          Different ways to get involved, contribute to the community,
+          and become part of Staff Finder.
         </p>
+      </div>
 
-        <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="community.html">Community</a>
-          <a href="contact.html">Contact</a>
+
+      <div class="role-list">
+
+        <!-- SALES AGENT -->
+
+        <div class="role">
+
+          <div>
+            <div class="role-name">Sales Agent</div>
+            <div class="role-tag">Sales</div>
+          </div>
+
+          <div class="role-content">
+
+            <h3>Requirements</h3>
+
+            <ul>
+              <li>14+</li>
+              <li>Be able to bring in clients</li>
+              <li>Be able to accept Apple Pay or gift cards</li>
+              <li>Be active in Discord</li>
+            </ul>
+
+          </div>
+
+          <a
+            href="https://discord.gg/EaNBG6fRz"
+            target="_blank"
+            class="apply-btn"
+          >
+            Apply as Sales Agent
+          </a>
+
+        </div>
+
+
+        <!-- VERIFIED STAFF -->
+
+        <div class="role">
+
+          <div>
+            <div class="role-name">Verified Staff</div>
+            <div class="role-tag">Staff Team</div>
+          </div>
+
+          <div class="role-content">
+
+            <h3>Requirements</h3>
+
+            <ul>
+              <li>Be active and involved in the community</li>
+              <li>Be responsible and trustworthy</li>
+              <li>Follow Staff Finder rules and expectations</li>
+              <li>Be willing to help the community</li>
+            </ul>
+
+          </div>
+
+          <a
+            href="https://discord.gg/EaNBG6fRz"
+            target="_blank"
+            class="apply-btn"
+          >
+            Apply for Staff
+          </a>
+
         </div>
 
       </div>
 
     </div>
+  </section>
+
+
+  <!-- SALES AGENT INFORMATION -->
+
+  <section>
+    <div class="container">
+
+      <div class="section-heading">
+        <div>
+          <h2>Sales Agent Information</h2>
+        </div>
+
+        <p>
+          Everything you need to know about payments and commissions
+          for the Sales Agent role.
+        </p>
+      </div>
+
+
+      <div class="info-list">
+
+        <div class="info-row">
+          <strong>Payment Method</strong>
+          <span>
+            Payments are made through Apple Pay or gift cards.
+          </span>
+        </div>
+
+        <div class="info-row">
+          <strong>Commission</strong>
+          <span>
+            Earn 15–20% from each person you bring in who places an order.
+          </span>
+        </div>
+
+        <div class="info-row">
+          <strong>Cash Out</strong>
+          <span>
+            You may cash out once you reach $5 worth of sales.
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+
+  <div class="cta">
+    <div class="container">
+
+      <h2>Ready to join?</h2>
+
+      <p>
+        Join the Staff Finder community and apply for a role that
+        fits you.
+      </p>
+
+      <a
+        href="https://discord.gg/EaNBG6fRz"
+        target="_blank"
+        class="cta-btn"
+      >
+        Join Staff Finder
+      </a>
+
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container footer-inner">
+
+      <div>
+        © 2026 Staff Finder
+      </div>
+
+      <div>
+        Minecraft Community
+      </div>
+
+    </div>
   </footer>
 
+
+  <!-- MOBILE MENU SCRIPT -->
 
   <script>
     function toggleMenu() {
